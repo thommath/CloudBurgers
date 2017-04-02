@@ -24,7 +24,7 @@ def map(request):
 # Create your views here.
 def login_view(request):
     try:
-        user = authenticate(username=request.POST.get('name'), password=request.POST.get('password'))
+        user = authenticate(username=request.POST['name'], password=request.POST['password'])
         if user is not None:
             #Success!
             login(request, user)
@@ -41,17 +41,17 @@ def login_view(request):
     return render(request, 'dashboard/login.html', {})
 
 def setup(request):
-    if len(User.objects.filter(username='per')) != 0:
+    if len(User.objects.filter(username='admin')) != 0:
         error_message = "Username already in use"
         print 'outch'
         return render(request, 'splash/index.html', {'error_message': error_message})
 
 
-    user = User(username='per',
+    user = User(username='admin',
                 first_name='admin',
                 last_name='admin',
                 email='admin')
-    user.set_password('per')
+    user.set_password('admin')
     user.save()
     login(request, user)
 
@@ -70,7 +70,6 @@ def setup(request):
     t3.save()
     t4 = Table(pos="2 2", diner=diner)
     t4.save()
-    print 'done'
     return HttpResponseRedirect(reverse('dashboard:index'))
 
 
