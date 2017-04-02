@@ -17,6 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'', include('Diner.urls', namespace='diner')),
+    url(r'', include('splash.urls', namespace='diner')),
+    url(r'diner', include('dashboard.urls', namespace='diner')),
     url(r'^admin/', admin.site.urls),
 ]

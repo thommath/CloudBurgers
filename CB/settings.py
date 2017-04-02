@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Diner.apps.DinerConfig',
+    'splash.apps.SplashConfig',
+    'dashboard.apps.DashboardConfig',
 ]
 
 MIDDLEWARE = [
