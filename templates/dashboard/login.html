@@ -1,0 +1,18 @@
+{% load staticfiles %}
+
+<!doctype html>
+<html>
+    <head>
+        <title>Cloud Burgers</title>
+		<meta charset="utf-8">
+		<link href="{% static 'css/login.css' %}" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+	<body>
+		<form method="post">
+			<input type="name" placeholder="E-post">
+			<input type="password" placeholder="Passord">
+			<input type="submit" value="Logg inn">
+		</form>
+	</body>
+</html>
