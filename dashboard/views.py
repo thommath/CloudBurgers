@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 
@@ -7,9 +8,6 @@ from django.contrib.auth.decorators import login_required
 @login_required(login_url='/dashboard/login/')
 def index(request):
     return render(request, 'dashboard/index.html', {})
-
-
-
 
 
 # Create your views here.
@@ -23,14 +21,14 @@ def login(request):
         else:
             #Wrong Password
             error_message = "Username and password did not match"
-            return render(request, 'user/login.html', {'error_message': error_message})
+            return render(request, 'dashboard/login.html', {'error_message': error_message})
     except KeyError as e:
         pass
 
     #No username set
 
 
-    return render(request, 'user/login.html', render_list)
+    return render(request, 'dashboard/login.html', {})
 
 def register(request):
     try:

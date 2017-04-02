@@ -18,6 +18,6 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'', include('splash.urls', namespace='diner')),
-    url(r'diner', include('dashboard.urls', namespace='diner')),
+    url(r'dashboard/', include('dashboard.urls', namespace='diner')),
     url(r'^admin/', admin.site.urls),
 ]

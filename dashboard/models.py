@@ -24,3 +24,7 @@ class Table(models.Model):
 class Customer(models.Model):
     order = models.CharField(max_length=512)
     table = models.ForeignKey(Table)
+
+class Item(models.Model):
+    name = models.CharField(max_length=64)
+    price = models.DecimalField(decimal_places=2, max_digits=10)
