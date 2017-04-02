@@ -5,3 +5,5 @@ WORKDIR /code
 ADD requirements.txt /code/
 RUN pip install -r requirements.txt
 ADD . /code/
+RUN mkdir -p /var/run/postgresql/9.3-main.pg_stat_tmp
+RUN chmod 0777 /var/run/postgresql/9.3-main.pg_stat_tmp
